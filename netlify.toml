@@ -1,0 +1,28 @@
+# Meclis-i Meşâyih Atlası — statik site (derleme adımı yok)
+[build]
+  publish = "."
+  command = ""
+
+# HTML her zaman tazelensin (uygulama güncellemeleri anında görünsün)
+[[headers]]
+  for = "/index.html"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+# CSS/JS sürüm etiketli (?v=) yükleniyor → uzun süre önbelleklenebilir
+[[headers]]
+  for = "/js/*"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"
+
+[[headers]]
+  for = "/css/*"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"
+
+# Veri katmanı: önbelleklensin ama her ziyarette doğrulansın
+[[headers]]
+  for = "/data/*"
+  [headers.values]
+    Cache-Control = "public, max-age=3600, must-revalidate"
+    Content-Type = "application/json; charset=utf-8"

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Meclis-i Meşâyih Atlası — Defter 1762</title>
+<meta name="description" content="Meclis-i Meşâyih Defteri 1762'nin 594 kaydından çıkarılan kişi, kurum ve yer ağının etkileşimli atlası.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<link rel="stylesheet" href="css/style.css?v=3">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='42' fill='%239c2f22'/%3E%3Ccircle cx='50' cy='50' r='18' fill='%23f8f5ef'/%3E%3C/svg%3E">
+</head>
+<body>
+
+<header id="topbar">
+  <div class="brand">
+    <span class="tughra" aria-hidden="true"></span>
+    <div>
+      <h1>Meclis-i Meşâyih Atlası</h1>
+      <p class="sub">Defter 1762 · 594 kayıt · <span id="meta-span">1665–1909</span></p>
+    </div>
+  </div>
+  <nav id="tabs" aria-label="Görünümler">
+    <a href="#/belgeler" data-view="belgeler">Belgeler</a>
+    <a href="#/ag" data-view="ag">Ağ</a>
+    <a href="#/harita" data-view="harita">Harita</a>
+    <a href="#/hakkinda" data-view="hakkinda">Yöntem</a>
+  </nav>
+</header>
+
+<div id="loading">
+  <div class="spinner"></div>
+  <p>Defter yükleniyor…</p>
+</div>
+
+<main id="main" hidden>
+
+  <!-- ============ BELGELER ============ -->
+  <section id="view-belgeler" class="view" hidden>
+    <aside id="doc-list-pane">
+      <div class="pane-tools">
+        <input id="doc-search" type="search" placeholder="Ara: özet, kişi, yer…" autocomplete="off">
+        <div class="row">
+          <select id="doc-decade" title="Onyıl"></select>
+          <select id="doc-tarikat" title="Tarikat"></select>
+        </div>
+        <p id="doc-count" class="hint"></p>
+      </div>
+      <ol id="doc-list"></ol>
+    </aside>
+    <article id="doc-body-pane">
+      <div id="doc-body-inner"></div>
+    </article>
+    <aside id="doc-side-pane"></aside>
+  </section>
+
+  <!-- ============ AĞ ============ -->
+  <section id="view-ag" class="view" hidden>
+    <div id="net-wrap">
+      <canvas id="net-canvas"></canvas>
+      <div id="net-controls" class="floating-card">
+        <input id="net-search" type="search" placeholder="Kişi / kurum ara…" autocomplete="off">
+        <div id="net-search-results"></div>
+        <div class="row wrap" id="net-mode-row">
+          <label class="chk"><input type="radio" name="netmode" value="core" checked> Çekirdek ağ</label>
+          <label class="chk"><input type="radio" name="netmode" value="all"> Tümü</label>
+        </div>
+        <select id="net-tarikat"></select>
+        <div class="legend" id="net-legend">
+          <span><i class="dot p"></i> Kişi</span>
+          <span><i class="dot i"></i> Kurum</span>
+          <span><i class="dot t"></i> Tarikat</span>
+          <span><i class="edge fam"></i> Aile</span>
+          <span><i class="edge aff"></i> Mensubiyet</span>
+        </div>
+        <p class="hint" id="net-stats"></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ HARİTA ============ -->
+  <section id="view-harita" class="view" hidden>
+    <div id="map-wrap">
+      <div id="map"></div>
+      <div id="map-controls" class="floating-card">
+        <select id="map-tarikat"></select>
+        <label class="chk"><input type="checkbox" id="map-inferred" checked> Bağlamdan çıkarılan konumları göster</label>
+        <div class="legend">
+          <span><i class="dot conf-kesin"></i> Kesin</span>
+          <span><i class="dot conf-cikarim"></i> Çıkarım</span>
+        </div>
+        <p class="hint" id="map-stats"></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ YÖNTEM ============ -->
+  <section id="view-hakkinda" class="view" hidden>
+    <div id="about"></div>
+  </section>
+
+</main>
+
+<!-- profil çekmecesi -->
+<div id="drawer-scrim" hidden></div>
+<aside id="drawer" hidden>
+  <button id="drawer-close" aria-label="Kapat">×</button>
+  <div id="drawer-body"></div>
+</aside>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="js/network.js?v=3"></script>
+<script src="js/map.js?v=3"></script>
+<script src="js/app.js?v=3"></script>
+</body>
+</html>
