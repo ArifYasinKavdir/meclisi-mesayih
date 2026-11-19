@@ -10,9 +10,11 @@ const AtlasMap = (() => {
     places = placeData; insts = instData; hooks = h;
     map = L.map("map", { zoomControl: true, attributionControl: true })
       .setView([40.5, 30.5], 5);
-    L.tileLayer("https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png", {
-      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OSM</a> &copy; <a href="https://carto.com/">CARTO</a>',
-      subdomains: "abcd", maxZoom: 12,
+    // OSM standart karoları: API anahtarı gerektirmez. Renkler CSS'te
+    // (.basemap-tiles) soluklaştırılır ki işaretler öne çıksın.
+    L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> katkıcıları',
+      maxZoom: 12, className: "basemap-tiles",
     }).addTo(map);
     layer = L.layerGroup().addTo(map);
     render();

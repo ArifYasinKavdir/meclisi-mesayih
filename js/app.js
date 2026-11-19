@@ -489,7 +489,7 @@
     <div class="kolofon">
       <p>Varlık tanıma: gpt-5.6-luna + şema v3.1 (594/594 kayıt) · Kimlik çözümü,
       tarih ve toponim normalizasyonu, hakemlik: Claude · Faz 0, Ağustos 2026.</p>
-      <p>Harita altlığı: © OpenStreetMap katkıcıları, © CARTO.</p>
+      <p>Harita altlığı: © OpenStreetMap katkıcıları.</p>
     </div>`;
 
   // ————— başlat —————

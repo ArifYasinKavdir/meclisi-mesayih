@@ -98,7 +98,7 @@ Bu, `atlas/data/*.json` dosyalarını yeniden yazar. Ardından `index.html` içi
 | `js/map.js` | Leaflet harita katmanı |
 | `js/app.js` | yönlendirici, belge gezgini, profiller, yöntem sayfası |
 
-Dış bağımlılıklar: Leaflet 1.9.4, harita karoları (CARTO), Google Fonts — canlı
+Dış bağımlılıklar: Leaflet 1.9.4, harita karoları (OpenStreetMap, API anahtarı gerekmez), Google Fonts — canlı
 gösterimde internet gerekir.
 
 ## Künye
@@ -106,4 +106,4 @@ gösterimde internet gerekir.
 Varlık tanıma: gpt-5.6-luna + şema v3.1 (594/594 kayıt). Kimlik çözümü, tarih ve
 toponim normalizasyonu, hakemlik: Claude. Faz 0, Ağustos 2026.
 
-Harita altlığı: © OpenStreetMap katkıcıları, © CARTO.
+Harita altlığı: © OpenStreetMap katkıcıları.
